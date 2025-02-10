@@ -66,3 +66,5 @@ function removeUserExpense(name)
     }    
 
 }
+
+export {GetUserBudget, saveUserBudget, saveUserExpenses, removeUserExpense}

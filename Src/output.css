@@ -857,6 +857,9 @@
   .h-\[30\] {
     height: 30;
   }
+  .h-\[80px\] {
+    height: 80px;
+  }
   .h-\[600\] {
     height: 600;
   }
@@ -865,6 +868,9 @@
   }
   .h-\[calc\(100\%-1rem\)\] {
     height: calc(100% - 1rem);
+  }
+  .h-full {
+    height: 100%;
   }
   .h-screen {
     height: 100vh;
@@ -916,6 +922,9 @@
   }
   .w-\[90\] {
     width: 90;
+  }
+  .w-\[95\%\] {
+    width: 95%;
   }
   .w-full {
     width: 100%;
@@ -1495,6 +1504,9 @@
   }
   .rounded {
     border-radius: 0.25rem;
+  }
+  .rounded-\[5px\] {
+    border-radius: 5px;
   }
   .rounded-lg {
     border-radius: var(--radius-lg);
@@ -2078,8 +2090,14 @@
   .\[color\:red\]\/50\! {
     color: color-mix(in oklab, red 50%, transparent) !important;
   }
+  .text-\[14\] {
+    color: 14;
+  }
   .text-\[40\] {
     color: 40;
+  }
+  .text-black {
+    color: var(--color-black);
   }
   .text-blue-600 {
     color: var(--color-blue-600);
@@ -2095,6 +2113,12 @@
   }
   .text-gray-900 {
     color: var(--color-gray-900);
+  }
+  .text-red-500 {
+    color: var(--color-red-500);
+  }
+  .text-red-700 {
+    color: var(--color-red-700);
   }
   .text-white {
     color: var(--color-white);
