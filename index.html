@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Src/output.css">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+    <title>Budget App</title>
+</head>
+<body class="bg-cyan-300 w-screen h-screen flex items-center flex-col">
+    
+
+<div class="flex w-[90%] justify-around">
+
+
+<div class="text-center">
+   <h1 class="text-[50px]">Budget:</h1> 
+   <p id="userBudget" class="m-0 text-[40px]">23$</p>
+</div>
+
+
+
+<div class="text-center">
+    <h1 class="text-[50px]">Set budget</h1>
+    <input id="userBudgetInput" type="text" class="">
+</div>
+
+</div>
+
+
+<div id="expensesContainer" class="border-2 bg-amber-100 overflow-y-scroll w-[90%] h-[600px]">
+
+
+
+</div>
+
+<div class="flex w-[90%] justify-around">
+
+    <div class="flex-col flex">
+
+        <div>
+            <h3>Expense Name</h3>
+            <input id="userExpenseName" type="text">
+        </div>
+
+        <div>
+            <h3>Expense Value</h3>
+            <input id="userExpenseValue" type="text">
+        </div>
+
+        <button id="expenseBtn" class="text-center bg-amber-100 border-2 active:border-green-500 p-2 mt-2">Add Expense</button>
+
+    </div>
+
+    <div>
+
+        <div>
+            <h2 class="text-[40px]">Money left:</h2>
+            <p id="moneyLeft" class="text-[40px]">12$</p>
+        </div>
+
+    </div>
+
+</div>
+
+
+<script type="module" src="./Scripts/app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+</body>
+</html>
