@@ -30,6 +30,7 @@ function setUserBudget(input){
     {
         budgetWarning.innerText = ''  
         saveUserBudget(Number(input))  
+        moneyCalculator()
     }
     else
     {
@@ -65,6 +66,7 @@ function expenseDisplay(){
         expenseRemoveBtn.addEventListener('click', () => {
             removeUserExpense(object.ExpenseName)
             expenseDiv.remove()
+            moneyCalculator()
 
         })
 
@@ -92,7 +94,17 @@ for (let coin of data.Expenses)
 
 }
 
-moneyLeft.innerText = `$${money.toFixed(2)}`
+
+if (money < 0)
+{                       
+                        // Math.abs() removes the defauls "-" that appears on negative numbers, allowing me to display the dollar sign correctly
+moneyLeft.innerText = `-$${Math.abs(money).toFixed(2)}`
+}
+else
+{
+    moneyLeft.innerText = `$${money.toFixed(2)}`
+}
+
 
 }
 
@@ -143,7 +155,7 @@ if (userExpenseName.value != "" && userExpenseValue.value != "")
 
 
 })
-
+// event listener for budget input field
 userBudgetInput.addEventListener('keydown', (e) => {
 
     if(e.key === 'Enter')
@@ -156,3 +168,12 @@ userBudgetInput.addEventListener('keydown', (e) => {
     }
 
 })
+// on load display
+function loadDisplay()
+{
+    displayBudget()
+    expenseDisplay()
+    moneyCalculator()
+}
+
+loadDisplay()
