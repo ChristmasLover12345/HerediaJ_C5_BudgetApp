@@ -9,15 +9,21 @@ const expenseBtn = document.getElementById("expenseBtn")
 const moneyLeft = document.getElementById("moneyLeft")
 
 const budgetWarning = document.getElementById("budgetWarning")
+const expenseNameWarning = document.getElementById("expenseNameWarning")
+const expenseValueWarning = document.getElementById("expenseValueWarning")
 
 
+let expenseNameBool = false
+let expenseValueBool = false
+
+// display user budget
 function displayBudget(){
 
 let data = GetUserBudget()
-userBudget.innerText = `${data.Budget}$`
+userBudget.innerText = `$${data.Budget.toFixed(2)}`
 
 }
-
+// save user budget
 function setUserBudget(input){
 
     if (!isNaN(input)) 
@@ -33,6 +39,7 @@ function setUserBudget(input){
 
 }
 
+// Display expenses
 function expenseDisplay(){
     let data = GetUserBudget()
     let ExpenseArr = data.Expenses
@@ -71,3 +78,81 @@ function expenseDisplay(){
     }
 
 }
+
+// subtract the expenses
+function moneyCalculator(){
+
+let data = GetUserBudget()
+let money = data.Budget
+
+for (let coin of data.Expenses)
+{
+
+    money -= coin.ExpenseValue
+
+}
+
+moneyLeft.innerText = `$${money.toFixed(2)}`
+
+}
+
+// Add an expense
+function setExpenses(name, value)
+{
+    if (isNaN(name)) 
+        {
+            expenseNameWarning.innerText = ''  
+            expenseNameBool = true
+             
+        }
+        else
+        {
+            expenseNameWarning.innerText = "words Only"
+            expenseNameBool = false
+        }
+
+    if (!isNaN(Number(value)))
+    {
+        expenseValueWarning.innerText = ''
+        expenseValueBool = true
+    }
+    else
+    {
+        expenseValueWarning.innerText = "numbers Only"
+        expenseValueBool = false
+    }
+
+    if (expenseNameBool && expenseValueBool)
+    {
+        saveUserExpenses(name, Number(value)) 
+        expenseDisplay()
+        moneyCalculator()
+       
+    }
+        
+}
+
+// event listener for adding an expense
+expenseBtn.addEventListener('click', () => {
+
+if (userExpenseName.value != "" && userExpenseValue.value != "")
+{
+    setExpenses(userExpenseName.value, userExpenseValue.value)
+
+}
+
+
+})
+
+userBudgetInput.addEventListener('keydown', (e) => {
+
+    if(e.key === 'Enter')
+    {
+        if ( userBudgetInput.value != "")
+        {
+            setUserBudget(userBudgetInput.value)
+            displayBudget()
+        }
+    }
+
+})
